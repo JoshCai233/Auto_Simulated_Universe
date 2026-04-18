@@ -890,8 +890,8 @@ class SimulatedUniverse(UniverseUtils):
     
     def on_key_press(self, event):
         global stop_flag
-        if event.name == "f8":
-            print("F8 已被按下，尝试停止运行")
+        if event.name == "f11":
+            print("F11 已被按下，尝试停止运行")
             self.stop()
 
     def show_map(self):

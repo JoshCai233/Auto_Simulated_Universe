@@ -113,7 +113,7 @@ Important!!! Once you start running/calibrating, do not move the game window! If
 
 **TIPS:**
 
-Press F8 or the "停止" button to halt the process.
+Press F11 or the "停止" button to halt the process.
 
 Prefer using ranged female characters in the first slot whenever possible. Melee females can also be viable, while other body types (e.g., male characters) may result in stability issues.
 
@@ -191,7 +191,7 @@ The script will automatically enter the map. During this process, do not move th
 
 After a few seconds, the character will move backward and then forward. During the forward movement, you can move the mouse to change the camera angle or use WASD on the keyboard.
 
-Move around the map, and when you feel it's sufficient, press F8 or Ctrl+C to terminate the process. This will capture the map data. It will be saved in the `imgs/maps/my_xxxxx` directory (sorted by modification time).
+Move around the map, and when you feel it's sufficient, press F11 or Ctrl+C to terminate the process. This will capture the map data. It will be saved in the `imgs/maps/my_xxxxx` directory (sorted by modification time).
 
 For maps with monsters, it's advisable to use Seele's ultimate ability. Being locked onto a target can affect the mini-map recognition.
 

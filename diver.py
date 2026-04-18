@@ -1177,8 +1177,8 @@ class DivergentUniverse(UniverseUtils):
         self._stop = True
     
     def on_key_press(self, event):
-        if event.name == "f8":
-            print("F8 已被按下，尝试停止运行")
+        if event.name == "f11":
+            print("F11 已被按下，尝试停止运行")
             self.stop()
 
     def start(self):
