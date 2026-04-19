@@ -1008,9 +1008,8 @@ class DivergentUniverse(UniverseUtils):
                         if len(total_events) and total_events[0][0] < 1600:
                             # 有时候会锁定到右边的状态效果那个字
                             break
-                        else:
-                            keyops.keyDown('w')
-                            time.sleep(1)
+                        keyops.keyDown('w')
+                    time.sleep(1)
 
                 keyops.keyUp('w')
                 if total_events is None:
@@ -1157,6 +1156,9 @@ class DivergentUniverse(UniverseUtils):
                         self.skill(1)
                     time.sleep(1.5)
                 else:
+                    pyautogui.click()
+                    # 部分场景怪身后有罐子, 需要a两次
+                    time.sleep(1)
                     pyautogui.click()
                 self.area_state += 1
             else:
