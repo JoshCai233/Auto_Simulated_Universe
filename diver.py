@@ -307,11 +307,11 @@ class DivergentUniverse(UniverseUtils):
     # 暂离 / 退出
     def close_and_exit(self, to_exit=True):
         self.press('esc')
-        if self.debug and self.floor < 13:
-            with open('test.txt', 'a') as f:
-                format_string = "%H:%M:%S"
-                formatted_time = time.strftime(format_string, time.localtime())
-                f.write(formatted_time + '\n')
+        # if self.debug and self.floor < 13:
+        #     with open('test.txt', 'a') as f:
+        #         format_string = "%H:%M:%S"
+        #         formatted_time = time.strftime(format_string, time.localtime())
+        #         f.write(formatted_time + '\n')
         time.sleep(1)
         # self.init_floor()  # 继续进度的时候会执行 init floor
         if not to_exit:
@@ -656,14 +656,14 @@ class DivergentUniverse(UniverseUtils):
                 self.click((self.tx, self.ty))
             # 事件选择界面
             elif self.check("star", 0.1828, 0.5000, mask="mask_event", threshold=0.965):
-                if self.debug and event_id[0] == -1:
-                    print(self.ts.res)
-                    with open('test.txt', 'a') as f:
-                        format_string = "%H:%M:%S"
-                        formatted_time = time.strftime(format_string, time.localtime())
-                        f.write(formatted_time + ' new event' + '\n')
-                    # while 1:
-                    #     time.sleep(1)
+                # if self.debug and event_id[0] == -1:
+                #     print(self.ts.res)
+                #     with open('test.txt', 'a') as f:
+                #         format_string = "%H:%M:%S"
+                #         formatted_time = time.strftime(format_string, time.localtime())
+                #         f.write(formatted_time + ' new event' + '\n')
+                #     # while 1:
+                #     #     time.sleep(1)
                 tx, ty = self.tx, self.ty
                 self.ts.forward(self.screen)
                 clicked = 0
