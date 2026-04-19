@@ -573,6 +573,10 @@ class DivergentUniverse(UniverseUtils):
                                       moving=moving):
                     self.enter_next_room()
                     self.init_floor()
+                    if self.debug and self.position_reloaded > 1:
+                        with open('test.txt', 'a') as f:
+                            formatted_time = time.strftime("%H:%M:%S", time.localtime())
+                            f.write(f'[{formatted_time}] position_reloaded = {self.position_reloaded} \n')
                     return
                 else:
                     keyops.keyUp('w')
@@ -1147,6 +1151,7 @@ class DivergentUniverse(UniverseUtils):
                 return
 
         elif area_now == '财富':
+            self.state_inited = True
             res = self.forward_until(text_list=['战利品', '药箱'], timeout=3, moving=0)
             if res:
                 pyautogui.click()
