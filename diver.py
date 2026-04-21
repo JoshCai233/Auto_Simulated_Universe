@@ -305,7 +305,7 @@ class DivergentUniverse(UniverseUtils):
             self.total_empty_saves = empty_saves
 
     # 暂离 / 退出
-    def close_and_exit(self, to_exit=True):
+    def close_and_exit(self, to_exit=True, no_debug=False):
         self.press('esc')
         # if self.debug and self.floor < 13:
         #     with open('test.txt', 'a') as f:
@@ -325,7 +325,7 @@ class DivergentUniverse(UniverseUtils):
             self.tactical_reset = True  # 这句要放到 init floor 后面
         if to_exit:
             log.error("谁在触发退出：\n%s", "".join(traceback.format_stack()))
-            if self.debug:
+            if self.debug and not no_debug:
                 exit()
             self.floor = 0
             self.click_position([1530, 990])
@@ -1165,7 +1165,7 @@ class DivergentUniverse(UniverseUtils):
             log.error('找不到任何东西, 退出重试!!!(不打冒险)')
             pyautogui.click()
             time.sleep(2)
-            self.close_and_exit()
+            self.close_and_exit(no_debug=True)
         else:
             self.press('F4')
         return 1
