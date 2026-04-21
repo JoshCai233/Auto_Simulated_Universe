@@ -1151,15 +1151,11 @@ class DivergentUniverse(UniverseUtils):
                 return
 
         elif area_now == '财富':
-            self.state_inited = True
             res = self.forward_until(text_list=['战利品', '药箱'], timeout=3, moving=0)
             if res:
                 pyautogui.click()
-                self.check_pop()
-                res = self.forward_until(text_list=['战利品', '药箱'], timeout=1, moving=0)
-                if res:
-                    pyautogui.click()
-                    self.check_pop()
+                return
+            self.state_inited = True
             self.portal_opening_days('财富房间')
             return
 
