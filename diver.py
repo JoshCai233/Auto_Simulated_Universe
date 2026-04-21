@@ -1001,8 +1001,8 @@ class DivergentUniverse(UniverseUtils):
                 delay = 0.2
                 for i in range(20):
                     self.get_screen()
+                    keyops.keyUp('w')
                     if self.get_text_position():
-                        keyops.keyUp('w')
                         # self.press('s', 0.25)
                         time.sleep(0.5)
                         self.get_screen()
@@ -1010,11 +1010,13 @@ class DivergentUniverse(UniverseUtils):
                         # 有时候会锁定到右边的状态效果那个字
                         if len(total_events) and total_events[0][0] < 1600:
                             if i == 0:
-                                break
+                                found = 999  # 可能有三个事件, 至少往前走一步
+                                continue
                             found += delay
                             if found > 0.6:
                                 break
-                        keyops.keyDown('w')
+                    keyops.keyDown('w')
+                    # log.info('寻找事件中')
                     time.sleep(delay)
 
                 keyops.keyUp('w')
