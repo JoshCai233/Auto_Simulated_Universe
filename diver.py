@@ -1056,7 +1056,7 @@ class DivergentUniverse(UniverseUtils):
             else:
                 self.portal_opening_days('事件房间处理事件完毕')
                 return
-        # 不休整不进商店, 首领后的传送门在4.0也统一变为是随意门了
+        # 不休整不进商店
         # elif area_now == '休整':
         #     pyautogui.click()
         #     self.check_pop()
@@ -1082,12 +1082,6 @@ class DivergentUniverse(UniverseUtils):
         #     return
         #
         # elif area_now == '首领':
-        #     if self.floor == 13 and self.state_inited:
-        #         # 已经结束战斗了
-        #         self.close_and_exit()
-        #         self.end_of_uni()
-        #         return 1
-
         #     if not self.state_inited:
         #         self.press('w', 3)
         #         for c in config.skill_char:
@@ -1111,6 +1105,11 @@ class DivergentUniverse(UniverseUtils):
         #         return
 
         elif area_now in ['战斗', '精英', '转化', '首领']:
+            if area_now == '首领' and self.floor == 13 and self.state_inited:
+                # 已经结束战斗了
+                self.close_and_exit()
+                self.end_of_uni()
+                return 1
             # 如果大黑塔秘技使能,先使用秘技,前面应该已经切换到了大黑塔
             if self.da_hei_ta and self.allow_e and not self.da_hei_ta_effecting:
                 self.skill()
